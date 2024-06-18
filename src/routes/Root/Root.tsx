@@ -3,9 +3,11 @@ import { Appbar } from "./Appbar";
 
 export const Root = () => {
   return (
-    <div>
+    <div className="flex min-h-screen bg-fixed bg-[radial-gradient(circle,#F0DEE5,#F4BCA2)]">
       <Appbar />
-      <Outlet />
+      <div className="flex-1 mt-16">
+        <Outlet />
+      </div>
     </div>
   );
 };

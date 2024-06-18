@@ -1,7 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { HomePage, PresentationPage, Root } from "routes";
-import "./index.css";
+import {
+  ContactSection,
+  HomePage,
+  ModalitiesSection,
+  OfficesSection,
+  Root,
+  ToolsSection,
+  TypeSection,
+} from "routes";
 import { StyledEngineProvider } from "@mui/material";
+
+import "./index.css";
 
 const router = createBrowserRouter(
   [
@@ -14,8 +23,24 @@ const router = createBrowserRouter(
           element: <HomePage />,
         },
         {
-          path: "presentation",
-          element: <PresentationPage />,
+          path: "types",
+          element: <TypeSection />,
+        },
+        {
+          path: "tools",
+          element: <ToolsSection />,
+        },
+        {
+          path: "offices",
+          element: <OfficesSection />,
+        },
+        {
+          path: "contact",
+          element: <ContactSection />,
+        },
+        {
+          path: "modalities",
+          element: <ModalitiesSection />,
         },
       ],
     },
