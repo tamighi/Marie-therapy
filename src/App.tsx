@@ -1,6 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage, PresentationPage, Root } from "routes";
 import "./index.css";
+import { StyledEngineProvider } from "@mui/material";
 
 const router = createBrowserRouter(
   [
@@ -23,7 +24,11 @@ const router = createBrowserRouter(
 );
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <StyledEngineProvider injectFirst>
+      <RouterProvider router={router} />
+    </StyledEngineProvider>
+  );
 };
 
 export default App;
