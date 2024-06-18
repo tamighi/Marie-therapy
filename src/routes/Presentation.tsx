@@ -1,5 +1,3 @@
 export const PresentationPage = () => {
-  return (
-    <div>Hello presentation</div>
-  )
-}
+  return <div>Hello presentation</div>;
+};
