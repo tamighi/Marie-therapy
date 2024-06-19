@@ -1,5 +1,5 @@
-import { ArrowCircleRight } from "@mui/icons-material";
-import { Typography } from "@mui/material";
+import { ArrowCircleDown } from "@mui/icons-material";
+import { Button, Typography } from "@mui/material";
 
 export const LeftHero = () => {
   return (
@@ -16,9 +16,10 @@ export const LeftHero = () => {
       <Typography variant="h4">
         Un accueil personnalisé pour vos besoins.
       </Typography>
-      <div className="flex gap-2 items-center md:justify-normal justify-center">
-        <Typography>En savoir plus</Typography>
-        <ArrowCircleRight />
+      <div className="flex gap-1 items-center md:justify-normal justify-center">
+        <Button variant="contained" endIcon={<ArrowCircleDown />}>
+          <Typography className="normal-case">En savoir plus</Typography>
+        </Button>
       </div>
     </div>
   );

@@ -46,13 +46,13 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: import.meta.env.BASE_URL },
+  { basename: import.meta.env.BASE_URL }
 );
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#ECE5B6",
+      main: "#F08080",
     },
   },
 });
