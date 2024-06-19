@@ -1,13 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { Appbar } from "./Appbar";
+import { Footer } from "./Footer";
 
 export const Root = () => {
   return (
-    <div className="flex min-h-screen bg-fixed bg-[radial-gradient(circle,#F0DEE5,#FFDAD6)]">
+    <div className="bg-fixed bg-[radial-gradient(circle,#F0DEE5,#FFDAD6)]">
       <Appbar />
-      <div className="flex-1 mt-16">
+      <div className="min-h-screen">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 };

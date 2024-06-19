@@ -7,7 +7,7 @@ import {
   Root,
   ToolsSection,
   TypeSection,
-} from "routes";
+} from "components";
 import { StyledEngineProvider, createTheme } from "@mui/material";
 
 import "./index.css";
