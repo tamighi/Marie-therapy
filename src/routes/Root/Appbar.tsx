@@ -8,6 +8,7 @@ import {
   MenuItem,
   Toolbar,
   Typography,
+  useTheme,
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +38,12 @@ const Pages = [
 
 export const Appbar = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const contrastText = React.useMemo(
+    () => theme.palette.primary.contrastText,
+    [],
+  );
+
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
   );
@@ -54,12 +61,8 @@ export const Appbar = () => {
       <div className="w-full lg:w-4/5 m-auto">
         <Toolbar>
           <Box className="flex-1 sm:flex md:hidden">
-            <IconButton
-              size="large"
-              color="inherit"
-              onClick={handleOpenNavMenu}
-            >
-              <MenuIcon />
+            <IconButton size="large" onClick={handleOpenNavMenu}>
+              <MenuIcon sx={{ color: contrastText }} />
             </IconButton>
           </Box>
           <Menu
@@ -84,7 +87,7 @@ export const Appbar = () => {
           </Menu>
 
           <Button onClick={() => navigate("/")}>
-            <Typography className="text-white normal-case">
+            <Typography sx={{ color: contrastText }} className="normal-case">
               Marie Somville
             </Typography>
           </Button>
@@ -94,8 +97,9 @@ export const Appbar = () => {
           <Box className="hidden md:flex">
             {Pages.map((item, i) => (
               <Button
+                sx={{ color: contrastText }}
                 onClick={() => navigate(item.to)}
-                className="text-white normal-case"
+                className="normal-case"
                 key={i}
               >
                 {item.label}
