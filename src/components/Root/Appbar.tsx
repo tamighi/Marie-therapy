@@ -41,11 +41,11 @@ export const Appbar = () => {
   const theme = useTheme();
   const contrastText = React.useMemo(
     () => theme.palette.primary.contrastText,
-    [],
+    []
   );
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -54,6 +54,11 @@ export const Appbar = () => {
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
+  };
+
+  const navigateMenu = (to: string) => {
+    navigate(to);
+    handleCloseNavMenu();
   };
 
   return (
@@ -80,7 +85,7 @@ export const Appbar = () => {
             }}
           >
             {Pages.map((item, i) => (
-              <MenuItem key={i} onClick={() => navigate(item.to)}>
+              <MenuItem key={i} onClick={() => navigateMenu(item.to)}>
                 <Typography>{item.label}</Typography>
               </MenuItem>
             ))}
