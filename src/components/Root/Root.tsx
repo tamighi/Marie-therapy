@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { AnimatedOutlet } from "./AnimatedOutlet";
 import { Appbar } from "./Appbar";
 import { Footer } from "./Footer";
 
@@ -7,7 +7,7 @@ export const Root = () => {
     <div className="bg-fixed bg-[radial-gradient(circle,#F0DEE5,#FFDAD6)]">
       <Appbar />
       <div className="min-h-screen">
-        <Outlet />
+        <AnimatedOutlet />
       </div>
       <Footer />
     </div>
