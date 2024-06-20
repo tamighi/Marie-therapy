@@ -1,3 +1,5 @@
+import { useMemo, useState } from "react";
+
 import { Menu as MenuIcon } from "@mui/icons-material";
 import {
   AppBar,
@@ -10,44 +12,40 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import React from "react";
-import { NavigateOptions, useNavigate } from "react-router-dom";
+import { NavigateOptions } from "react-router-dom";
+
+import { useNavigate } from "hooks";
 
 const Pages = [
   {
     label: "Outils",
-    to: "",
-    options: { state: { id: "presentation" } },
+    to: "/",
+    options: { state: { section: "presentation" } },
   },
   {
     label: "Types de consultations",
-    to: "types",
+    to: "/types",
   },
   {
     label: "Modalités pratique",
-    to: "modalities",
+    to: "/modalities",
   },
   {
     label: "Cabinets",
-    to: "offices",
+    to: "/offices",
   },
   {
     label: "Contact",
-    to: "contact",
+    to: "/contact",
   },
 ];
 
 export const Appbar = () => {
   const navigate = useNavigate();
   const theme = useTheme();
-  const contrastText = React.useMemo(
-    () => theme.palette.primary.contrastText,
-    []
-  );
+  const contrastText = useMemo(() => theme.palette.primary.contrastText, []);
 
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -95,7 +93,7 @@ export const Appbar = () => {
             ))}
           </Menu>
 
-          <Button onClick={() => navigate("/", { state: { id: "hero" } })}>
+          <Button onClick={() => navigate("/", { state: { section: "hero" } })}>
             <Typography sx={{ color: contrastText }} className="normal-case">
               Marie Somville
             </Typography>

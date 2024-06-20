@@ -1,11 +1,12 @@
 import { ArrowCircleDown } from "@mui/icons-material";
 import { Button, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 
-export const LeftHero = () => {
+import { useNavigate } from "hooks";
+
+export const HeroDescription = () => {
   const navigate = useNavigate();
   const scrollToPresentation = () => {
-    navigate("/", { state: { id: "presentation", scrollBehavior: "smooth" } });
+    navigate("/", { state: { section: "presentation" } });
   };
 
   return (
