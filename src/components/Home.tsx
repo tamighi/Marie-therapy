@@ -1,8 +1,27 @@
+import React from "react";
+
+import { useLocation } from "react-router-dom";
+
 import { Hero } from "./Hero";
 import { PresentationSection } from "./PresentationSection";
 import { ToolsSection } from "./ToolsSection";
 
 export const HomePage = () => {
+  const location = useLocation();
+
+  React.useEffect(() => {
+    if (location.state?.id) {
+      scrollToPresentation(location.state.id, location.state?.scrollBehavior);
+    }
+  }, [location]);
+
+  const scrollToPresentation = (
+    to: string,
+    behavior: ScrollBehavior = "instant"
+  ) => {
+    const section = document.querySelector("#" + to);
+    section?.scrollIntoView({ behavior, block: "start" });
+  };
   return (
     <div>
       <Hero></Hero>

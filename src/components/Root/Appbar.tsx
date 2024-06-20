@@ -11,16 +11,17 @@ import {
   useTheme,
 } from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavigateOptions, useNavigate } from "react-router-dom";
 
 const Pages = [
   {
-    label: "Types de consultations",
-    to: "types",
+    label: "Outils",
+    to: "",
+    options: { state: { id: "presentation" } },
   },
   {
-    label: "Outils",
-    to: "tools",
+    label: "Types de consultations",
+    to: "types",
   },
   {
     label: "Modalités pratique",
@@ -56,8 +57,8 @@ export const Appbar = () => {
     setAnchorElNav(null);
   };
 
-  const navigateMenu = (to: string) => {
-    navigate(to);
+  const navigateMenu = (to: string, options?: NavigateOptions) => {
+    navigate(to, options);
     handleCloseNavMenu();
   };
 
@@ -85,13 +86,16 @@ export const Appbar = () => {
             }}
           >
             {Pages.map((item, i) => (
-              <MenuItem key={i} onClick={() => navigateMenu(item.to)}>
+              <MenuItem
+                key={i}
+                onClick={() => navigateMenu(item.to, item.options)}
+              >
                 <Typography>{item.label}</Typography>
               </MenuItem>
             ))}
           </Menu>
 
-          <Button onClick={() => navigate("/")}>
+          <Button onClick={() => navigate("/", { state: { id: "hero" } })}>
             <Typography sx={{ color: contrastText }} className="normal-case">
               Marie Somville
             </Typography>
@@ -103,7 +107,7 @@ export const Appbar = () => {
             {Pages.map((item, i) => (
               <Button
                 sx={{ color: contrastText }}
-                onClick={() => navigate(item.to)}
+                onClick={() => navigate(item.to, item.options)}
                 className="normal-case"
                 key={i}
               >
